@@ -2,7 +2,7 @@ galaxy_info:
   author: Kyle Root
   description: Installs and configures Exim to act as an SMTP relay to AWS SES.
   license: MIT
-  # May work on earlier versions of Ansible as well, I have only test with 2.1.
+  # May work on earlier versions of Ansible as well, I have only tested this role with 2.1.
   min_ansible_version: 2.1
   platforms:
     - name: EL

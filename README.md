@@ -27,7 +27,7 @@ If the Ansible variable `relay_from_hosts` is left unset, the role will use the 
 
 ### aws_region
 
-`aws_region` Has a default value of `us-east-1`.
+`aws_region` has a default value of `us-east-1`.
 
 ## Dependencies
 
