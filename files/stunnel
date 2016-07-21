@@ -1,0 +1,11 @@
+service stunnel
+{
+	disable		= no
+	flags		= REUSE
+	socket_type	= stream
+	type		= UNLISTED
+	wait		= no
+	user		= root
+	port		= 2525
+	server		= /usr/bin/stunnel
+}

@@ -1,0 +1,6 @@
+---
+- name: exim service
+  service: name=exim enabled=yes state=started
+
+- name: xinetd service
+  service: name=xinetd enabled=yes state=started

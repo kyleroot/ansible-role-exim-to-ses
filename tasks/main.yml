@@ -1,0 +1,30 @@
+---
+
+# Exim
+
+- name: install pkgs
+  yum: name={{ item }} state=installed
+  with_items:
+    - exim
+    # required by the ipaddr() filter.
+    - python-netaddr
+    - stunnel
+    - xinetd
+
+- name: move the default exim.conf someplace safe
+  command: >
+    mv /etc/exim/exim.conf /etc/exim/exim.conf.orig
+    creates=/etc/exim/exim.conf.orig
+
+- name: create exim.conf
+  template: src=exim.conf.j2 dest=/etc/exim/exim.conf
+  notify: exim service
+
+# stunnel & xinetd
+
+- name: create stunnel.conf
+  template: src=stunnel.conf.j2 dest=/etc/stunnel/stunnel.conf
+
+- name: copy xinetd stunnel service file into place
+  copy: src=stunnel dest=/etc/xinetd.d/stunnel
+  notify: xinetd service
